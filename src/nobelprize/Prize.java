@@ -17,7 +17,7 @@ public class Prize {
     final private String category;
     final private int share;
     final private String motivation;
-    final private Affiliate[] affiliate;
+    final private Affiliate[] affiliations;
 
     /**
      *
@@ -27,12 +27,12 @@ public class Prize {
      * @param motivation
      * @param affiliate
      */
-    public Prize(int year, String category, int share, String motivation, Affiliate[] affiliate) {
+    public Prize(int year, String category, int share, String motivation, Affiliate[] affiliations) {
         this.year = year;
         this.category = category;
         this.share = share;
         this.motivation = motivation;
-        this.affiliate = affiliate;        
+        this.affiliations = affiliations;        
     }
 
     /**
@@ -67,7 +67,7 @@ public class Prize {
      * @return the affiliates
      */
     public Affiliate[] getAffiliate() {
-        return affiliate;
+        return affiliations;
     }
     
     

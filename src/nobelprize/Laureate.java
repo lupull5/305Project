@@ -14,8 +14,8 @@ import java.util.ArrayList;
 public class Laureate {
     
     private final int id;
-    private final String firstName;
-    private final String surName;
+    private final String firstname;
+    private final String surname;
     private final String born;
     private final String died;
     private final String bornCountry;
@@ -27,10 +27,10 @@ public class Laureate {
     private final String gender;
     private final Prize[] prizes;
     
-    public Laureate(int id, String firstName, String surName, String born, String died, String bornCountry, String bornCountryCode, String bornCity, String diedCountry, String diedCountryCode, String diedCity, String gender, Prize[] prizes){
+    public Laureate(int id, String firstname, String surname, String born, String died, String bornCountry, String bornCountryCode, String bornCity, String diedCountry, String diedCountryCode, String diedCity, String gender, Prize[] prizes){
         this.id = id;
-        this.firstName = firstName;
-        this.surName = surName;
+        this.firstname = firstname;
+        this.surname = surname;
         this.born = born;
         this.died = died;
         this.bornCountry = bornCountry;
@@ -54,14 +54,14 @@ public class Laureate {
      * @return the firstName
      */
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
     /**
      * @return the surName
      */
     public String getSurName() {
-        return surName;
+        return surname;
     }
 
     /**

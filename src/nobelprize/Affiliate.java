@@ -16,9 +16,21 @@ class Affiliate {
     final private String country;
     
     public Affiliate(String name, String city, String country){
-        this.name = name;
-        this.city = city;
-        this.country = country;
+        if(name == null){
+            this.name = "<Empty>";
+        }else{
+            this.name = name;
+        }
+        if(city == null){
+            this.city = "<Empty>";
+        }else{
+            this.city = city;
+        }
+        if(country == null){
+            this.country = "<Empty>";
+        }else{
+            this.country = country;
+        }                        
     }
     
     public String getName(){

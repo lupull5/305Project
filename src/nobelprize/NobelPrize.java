@@ -6,10 +6,8 @@
 package nobelprize;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -17,7 +15,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.Map;
 
 
 /**
@@ -41,11 +38,15 @@ public class NobelPrize {
         StringBuffer content = new StringBuffer();
        
         while ((inputLine = in.readLine()) != null) {
-            content.append(inputLine);
+            if(inputLine.contains("[[]]")){
+                
+            }
+            content.append(inputLine.replaceAll("/[/[/]/]", "{[]}"));
         }
         in.close();
         con.disconnect();      
-        System.out.println(content);        
+        System.out.println(content);  
+        
         Gson gson = new Gson();                
         JsonParser parse = new JsonParser();
         parse.parse(content.toString());
@@ -55,7 +56,7 @@ public class NobelPrize {
         Laureate[] peopleList = gson.fromJson(jj.get("laureates"), Laureate[].class);
         
         
-        System.out.println(peopleList[0].getDied());
+        System.out.println(peopleList[1]);
         
         //Laureate[] obj = gson.fromJson(laureateList.get("laureates").toString(), Laureate[].class);
         
