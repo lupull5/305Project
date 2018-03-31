@@ -6,6 +6,8 @@
 package nobelprize;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
 
 /**
  *
@@ -134,5 +136,29 @@ public class Laureate {
         return prizes;
     }
     
+    private String getFields(){
+        StringBuilder fields = new StringBuilder();
+            for(Prize prize : this.getPrizes()){
+                if (!fields.toString().contains(prize.getCategory())){
+                    fields.append(prize.getCategory());
+                }
+            }
+            return fields.toString();
+    }
     
+    public HashMap getData(){
+        HashMap<String, String> laureateInfo = new HashMap();
+        laureateInfo.put("firstname", getFirstName());
+        laureateInfo.put("lastname", getSurName());
+        laureateInfo.put("born", getFirstName());
+        laureateInfo.put("died", getFirstName());
+        laureateInfo.put("bornCountry", getFirstName());
+        laureateInfo.put("diedCountry", getFirstName());
+        laureateInfo.put("diedCountryCode", getFirstName());
+        laureateInfo.put("diedCity", getFirstName());
+        laureateInfo.put("gender", getFirstName());
+        laureateInfo.put("field", getFields());           
+        return laureateInfo;
+    }        
 }
+

@@ -5,16 +5,11 @@
  */
 package nobelprize;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
-import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
 
 
 /**
@@ -30,5 +25,10 @@ public class NobelPrize {
      */
     public static void main(String[] args) throws MalformedURLException, ProtocolException, IOException {
         LaureateDatabase MrDataBase = new LaureateDatabase();
+        HashMap<String, String> template = new HashMap();
+        template.put("bornCity", "Paris");
+        ArrayList<Laureate> jimbo = new ArrayList();
+        jimbo = MrDataBase.searchForLaureate(template);
+        System.out.println("Howdy!");
     }       
 }
