@@ -25,44 +25,10 @@ public class NobelPrize {
 
     /**
      * @param args the command line arguments
+     * @throws java.net.MalformedURLException
+     * @throws java.net.ProtocolException
      */
     public static void main(String[] args) throws MalformedURLException, ProtocolException, IOException {
-
-        URL laureateSite = new URL("http://api.nobelprize.org/v1/laureate.json");
-        HttpURLConnection con = (HttpURLConnection) laureateSite.openConnection();
-        con.setRequestMethod("GET");
-        
-
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));        
-        String inputLine;
-        StringBuffer content = new StringBuffer();
-       
-        while ((inputLine = in.readLine()) != null) {
-            if(inputLine.contains("[[]]")){
-                
-            }
-            content.append(inputLine.replaceAll("/[/[/]/]", "{[]}"));
-        }
-        in.close();
-        con.disconnect();      
-        System.out.println(content);  
-        
-        Gson gson = new Gson();                
-        JsonParser parse = new JsonParser();
-        parse.parse(content.toString());
-        JsonObject jj = (JsonObject) parse.parse(content.toString());
-        
-        
-        Laureate[] peopleList = gson.fromJson(jj.get("laureates"), Laureate[].class);
-        
-        
-        System.out.println(peopleList[1]);
-        
-        //Laureate[] obj = gson.fromJson(laureateList.get("laureates").toString(), Laureate[].class);
-        
-        
-                                                  
-        }
-        
-}       
-    
+        LaureateDatabase MrDataBase = new LaureateDatabase();
+    }       
+}
