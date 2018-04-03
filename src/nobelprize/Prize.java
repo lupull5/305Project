@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public class Prize {
     
-    final private int year;
+    final private Integer year;
     final private String category;
-    final private int share;
+    final private Integer share;
     final private String motivation;
     final private Affiliate[] affiliations;
 
@@ -66,8 +66,12 @@ public class Prize {
     /**
      * @return the affiliates
      */
-    public Affiliate[] getAffiliate() {
-        return affiliations;
+    public String getAffiliate() {
+        ArrayList<String> affiliateList = new ArrayList();
+        for (Affiliate affiliate: affiliations){
+            affiliateList.add(affiliate.getName());
+        }        
+        return affiliateList.toString();
     }
     
     

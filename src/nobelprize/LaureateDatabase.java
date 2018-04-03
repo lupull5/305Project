@@ -52,7 +52,8 @@ public class LaureateDatabase {
         this.buildLaureateList(this.getJSON("http://api.nobelprize.org/v1/laureate.json", ""));        
         this.laureateListCleaner();
         //this.collectLaureateImages();
-        this.ImageCompressor();
+        //this.ImageCompressor();   
+        System.out.print("c");
     } 
     /**
      * 
@@ -94,9 +95,10 @@ public class LaureateDatabase {
         JsonParser parser = new JsonParser();
         JsonObject laureates = (JsonObject) parser.parse(laureateJSON);                
         laureateList = gson.fromJson(laureates.get("laureates"), new TypeToken<List<Laureate>>(){}.getType());
-        for (Laureate laureate : laureateList){ 
-            laureate.makeFullNames();
-            checkImageExistence(laureate);                                 
+        for (Laureate laureate : getLaureateList()){ 
+            laureate.makeFullNames();            
+            checkImageExistence(laureate);
+            
         }
     }
     
@@ -126,12 +128,12 @@ public class LaureateDatabase {
     private void laureateListCleaner(){
         List<Laureate> incorrectLaureates = new ArrayList();
         
-        for(Laureate laureate: this.laureateList){            
+        for(Laureate laureate: this.getLaureateList()){            
             if(laureate.getBorn().equals("0000-00-00") && laureate.getDied().equals("0000-00-00") && laureate.getGender().equals("male")){
                 incorrectLaureates.add(laureate);
             }            
         }    
-        laureateList.removeAll(incorrectLaureates);
+        getLaureateList().removeAll(incorrectLaureates);
     }
     /**
      * 
@@ -141,7 +143,7 @@ public class LaureateDatabase {
         JsonParser parser = new JsonParser();
         String laureateImageJSON;
         String newData = null;
-        for (Laureate laureate : laureateList){
+        for (Laureate laureate : getLaureateList()){
             for (String nameType : laureate.getFirstNameList()){
                 if (laureate.getLaureateImage().equals("Images/no_face.png") && !laureate.getBorn().equals("0000-00-00")){
                     if ((laureateImageJSON = this.getJSON("https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=", nameType)) != null){                    
@@ -204,7 +206,7 @@ public class LaureateDatabase {
     * @param searchParameters
     * @return 
     */
-    public ArrayList<Laureate> searchForLaureate(HashMap<String, String> searchParameters){
+  /*  public ArrayList<Laureate> searchForLaureate(HashMap<String, String> searchParameters){
         ArrayList<Laureate> searchedLaureates = new ArrayList();
         Boolean search = true;
         for(Laureate laureate : laureateList){
@@ -223,7 +225,7 @@ public class LaureateDatabase {
             }
         }
         return searchedLaureates;
-    }
+    }*/
     /**
      * 
      * @throws IOException 
@@ -232,7 +234,7 @@ public class LaureateDatabase {
         ArrayList<String> images = new ArrayList();
         ArrayList<File> files = new ArrayList();
         
-        for(Laureate laur : laureateList){
+        for(Laureate laur : getLaureateList()){
             try{
                 File currentImage = new File(laur.getLaureateImage());
                 BufferedImage img = ImageIO.read(currentImage);
@@ -240,10 +242,14 @@ public class LaureateDatabase {
                 ImageIO.write(scaledImg, "png", currentImage);
             }catch(IllegalArgumentException r){               
             }
-        }
-          
-          
-          
+        }                              
+    }
+
+    /**
+     * @return the laureateList
+     */
+    public Collection<Laureate> getLaureateList() {
+        return laureateList;
     }
 }
 

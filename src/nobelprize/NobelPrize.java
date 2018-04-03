@@ -8,10 +8,6 @@ package nobelprize;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
-import java.util.ArrayList;
-import java.util.HashMap;
-
-
 /**
  *
  * @author psyco
@@ -24,11 +20,9 @@ public class NobelPrize {
      * @throws java.net.ProtocolException
      */
     public static void main(String[] args) throws MalformedURLException, ProtocolException, IOException {
-        LaureateDatabase MrDataBase = new LaureateDatabase();
-        HashMap<String, String> template = new HashMap();
-        template.put("bornCity", "Paris");
-        ArrayList<Laureate> jimbo = new ArrayList();
-        jimbo = MrDataBase.searchForLaureate(template);
-        System.out.println("Howdy!");
+        LaureateDatabase MrDataBase = new LaureateDatabase();       
+        
+
+
     }       
 }

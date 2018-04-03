@@ -5,9 +5,15 @@
         <group>
             <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/Affiliate.java</file>
             <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/LaureateDatabase.java</file>
+            <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/searchprograminterface/FXMLDocumentController.java</file>
+            <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/searchprograminterface/Controller.java</file>
             <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/NobelPrize.java</file>
             <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/Laureate.java</file>
             <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/Prize.java</file>
+            <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/nobelprize/NarrowSearch.java</file>
+            <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/searchprograminterface/SearchProgramInterface.java</file>
+            <file>file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/src/searchprograminterface/FXMLHomePageController.java</file>
+            <file>jar:file:/C:/Users/Darren/Documents/NetBeansProjects/NobelPrize/Lib/gson-2.8.0-sources.jar!/com/google/gson/internal/LinkedTreeMap.java</file>
         </group>
     </open-files>
 </project-private>

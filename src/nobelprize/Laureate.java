@@ -29,7 +29,7 @@ public class Laureate {
     private final String diedCountry;
     private final String diedCountryCode;
     private final String diedCity;
-    private final String gender;
+    private final String gender;    
     private final Prize[] prizes;
     private String laureateImage;
     private ArrayList<String> firstNameList = new ArrayList();
@@ -159,25 +159,7 @@ public class Laureate {
             for(String firstName : this.getFirstName().replace("(", "").replace(")", "").split(" ") ){
                 firstNameComponents.add(firstName);
             }
-            this.setFirstNameList(getNameVariations(firstNameComponents, nameCombinations));         
-            
-            
-            /*
-            StringBuilder fullName = new StringBuilder();
-            firstNameComponents = this.getfirstName.split(" ");
-            ArrayList<String> nameVariations = new ArrayList();
-            fullName.append(this.getFirstName().replace(" ", "_"));
-            fullName.append("_");
-            fullName.append(this.getSurName());
-            nameVariations.add(fullName.toString());
-            for (String nameType : firstNameComponents){
-                fullName.delete(0, fullName.length());
-                fullName.append(nameType);
-                fullName.append("_");
-                fullName.append(this.getSurName());
-                nameVariations.add(fullName.toString());            
-            }                      
-            return nameVariations;*/
+            this.setFirstNameList(getNameVariations(firstNameComponents, nameCombinations));                     
         } catch (NullPointerException e){
             Logger.logMsg(1, this.firstname);
         }
@@ -250,5 +232,6 @@ public class Laureate {
     public void setFirstNameList(ArrayList<String> firstNameList) {
         this.firstNameList = firstNameList;
     }
+
 }
 
