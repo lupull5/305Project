@@ -490,7 +490,7 @@ has a Prize award of the specified category, false otherwise.
     }        
 
     public ArrayList<Laureate> getWinners() {
-        return this.winners;
+        return this.laureates;
     }
     /**
      * @return the nameSearch
