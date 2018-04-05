@@ -43,6 +43,8 @@ public class NarrowSearch
         CountrySearch = BirthDeathCountry();
         DateSearch = BirthDeathDates();
         byCategory = WonPrize();
+
+
       
     }        
     //boolean method returns true if given laureate object contains the given field.
