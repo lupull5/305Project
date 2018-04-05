@@ -489,6 +489,9 @@ has a Prize award of the specified category, false otherwise.
         return false;
     }        
 
+    public ArrayList<Laureate> getWinners() {
+        return this.winners;
+    }
     /**
      * @return the nameSearch
      */
