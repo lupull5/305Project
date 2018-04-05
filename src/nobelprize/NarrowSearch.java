@@ -319,6 +319,10 @@ public HashMap City()
   //I.E, gives the decade of birth for the Laureate as a String.
     public String chopDateBorn(Laureate winner) {
         String year = winner.getBorn().substring(0,4);
+         if(year.equals("Not "))
+        {
+            return "Not Available";
+        }    
         int date = Integer.parseInt(year);
         //discard the one's place. 
         date = date /10;
@@ -329,6 +333,10 @@ public HashMap City()
     //similar to chopDateBorn, except with the laureate's death date.
      public String chopDateDied(Laureate winner) {
         String year = winner.getDied().substring(0,4);
+          if(year.equals("Not "))
+        {
+            return "Not Available";
+        }    
          int date = Integer.parseInt(year);
         //discard the one's place. 
         date = date /10;
