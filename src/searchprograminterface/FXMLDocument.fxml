@@ -4,12 +4,13 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -19,13 +20,13 @@
       <items>
         <AnchorPane prefHeight="615.0" prefWidth="242.0" style="-fx-background-color: #34495E;">
                <children>
-                  <Accordion fx:id="categories" layoutY="33.0" prefHeight="566.0" prefWidth="241.0" style="-fx-background-color: #1B4F72;">
+                  <Accordion fx:id="categories" layoutY="33.0" prefHeight="740.0" prefWidth="241.0" style="-fx-background-color: #212F3C;">
                     <panes>
                       <TitledPane fx:id="year" animated="false" text="Year">
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView prefHeight="444.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
+                                    <ListView prefHeight="666.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
                                     <Button fx:id="male1" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#search1900" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1900s" textFill="WHITE" />
                                     <Button fx:id="male3" layoutX="24.0" layoutY="109.0" mnemonicParsing="false" onAction="#search1920" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1920s" textFill="#f5f5f5" />
                                     <Button fx:id="male2" layoutX="24.0" layoutY="66.0" mnemonicParsing="false" onAction="#search1910" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655 #0E6655; -fx-background-radius: 6;" text="1910s" textFill="WHITE" />
@@ -45,18 +46,18 @@
                         <content>
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
-                                    <ListView prefHeight="481.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
-                                    <Button fx:id="male" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Male" />
-                                    <Button fx:id="female" layoutX="14.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchFemale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Female" />
+                                    <ListView prefHeight="664.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
+                                    <Button fx:id="male" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Male" textFill="WHITE" />
+                                    <Button fx:id="female" layoutX="24.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchFemale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Female" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                         </content>
                       </TitledPane>
                       <TitledPane fx:id="prize" animated="false" prefHeight="376.0" prefWidth="241.0" text="Prize">
                         <content>
-                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="239.0">
                                  <children>
-                                    <ListView prefHeight="483.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
+                                    <ListView prefHeight="665.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
                                     <Button fx:id="male11" layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#searchPhysics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Physics" textFill="WHITE" />
                                     <Button fx:id="male12" layoutX="34.0" layoutY="119.0" mnemonicParsing="false" onAction="#searchEconomics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Economics" textFill="WHITE" />
                                     <Button fx:id="male13" layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#searchChemistry" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Chemistry" textFill="WHITE" />
@@ -81,24 +82,25 @@
                   </Button>
                </children>
         </AnchorPane>
-        <ScrollPane prefHeight="769.0" prefWidth="799.0">
-          <content>
-            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="677.0" prefWidth="839.0" style="-fx-background-color: #212F3C;">
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <top>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="772.0" prefWidth="884.0" style="-fx-background-color: #212F3C;" BorderPane.alignment="CENTER">
               <children>
                 <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="Results" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
                            <font>
                       <Font name="System Bold" size="18.0" fx:id="x1" />
                            </font></Label>
-                        <Button layoutX="583.0" layoutY="3.0" minHeight="21.0" minWidth="47.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="41.0" prefWidth="54.0" style="-fx-background-color: #B71C1C; -fx-border-color: #B71C1C; -fx-border-width: 3; -fx-background-radius: 6; -fx-border-radius: 6;" text="Exit" textFill="#fff8f8">
+                        <Button layoutX="803.0" layoutY="7.0" minHeight="21.0" minWidth="47.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="41.0" prefWidth="54.0" style="-fx-background-color: #B71C1C; -fx-border-color: #B71C1C; -fx-border-width: 3; -fx-background-radius: 6; -fx-border-radius: 6;" text="Exit" textFill="#fff8f8">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <TableView fx:id="laureateTable" layoutX="9.0" layoutY="50.0" prefHeight="713.0" prefWidth="866.0" />
+                        <TableView fx:id="laureateTable" layoutX="14.0" layoutY="53.0" onMouseClicked="#selectedRow" prefHeight="372.0" prefWidth="851.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-border-radius: 6; -fx-background-radius: 8;" />
+                        <ImageView fitHeight="316.0" fitWidth="261.0" layoutX="14.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" />
               </children>
             </AnchorPane>
-          </content>
-        </ScrollPane>
+               </top>
+            </BorderPane>
       </items>
     </SplitPane>
   </children>

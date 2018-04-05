@@ -9,9 +9,7 @@ package nobelprize;
 import java.util.HashMap;
 import java.util.Set;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
-import java.util.LinkedList;
 /**
  *
  * @author lukelupul
@@ -44,6 +42,7 @@ public class NarrowSearch
         nameSearch = names();
         CountrySearch = BirthDeathCountry();
         DateSearch = BirthDeathDates();
+        byCategory = WonPrize();
       
     }        
     //boolean method returns true if given laureate object contains the given field.
@@ -283,7 +282,7 @@ public HashMap City()
     
     }//terminates dates  
  //accesor method, presently kind of redundant.
- public ArrayList<Laureate> getDecade( String Decade) 
+ public ArrayList<Laureate> getBornDiedDecade( String Decade) 
  {//cast to arrayList of Laureates.
      return (ArrayList<Laureate>) getDateSearch().get(Decade);
  }        
@@ -412,7 +411,7 @@ public HashMap City()
                truncYear = award.getYear();
                truncYear /= 10;
                truncYear *= 10;
-               if (award.getYear() == year)
+               if (truncYear == year)
                    wonThatDecade.add(winner);
            }
            
@@ -420,7 +419,8 @@ public HashMap City()
        return wonThatDecade;
    }        
   
-//this function initializes a mashmap containing Strings of the prizes as 
+    
+//this function initializes a hashmap containing Strings of the prize categories as 
 // keys, and arrays of the Laureates who won those prizes as values.   
 
 public HashMap WonPrize()
@@ -454,17 +454,41 @@ public HashMap WonPrize()
 /*
 as on now inclomplete pruner for arraylists of laureates that reduces to only
 those laureates who won categories.
-
+*/
 public ArrayList<Laureate> clarifyCategory(ArrayList<Laureate> possibilities, String Category )
     {
-        ArrayList<Laureate> 
+        ArrayList<Laureate> reducedLaList = new ArrayList<Laureate>(); 
         for (Laureate winner : possibilities)
         {
-            if (winner.prizes.contains())
-        }    
+            
+            if (HasPrize(winner,Category))
+            {//case where laureate has a prize of the specified category.
+                reducedLaList.add(winner);
+            }
+            
+        }
+        return reducedLaList;
     }
-*/        
 
+
+/*
+this is a boolean method, returns true if the given Laureate winner
+has a Prize award of the specified category, false otherwise.
+*/
+
+    public boolean HasPrize(Laureate winner, String category)
+    {
+        for (Prize thePrizeTheLaureateWon: winner.getPrizes())
+        {
+            if (thePrizeTheLaureateWon.getCategory().equals(category)  )
+                return true;
+        }
+        return false;
+    }        
+
+    public ArrayList<Laureate> getWinners() {
+        return (ArrayList<Laureate>) this.laureates;
+    }
     /**
      * @return the nameSearch
      */
