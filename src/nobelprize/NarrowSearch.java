@@ -414,7 +414,7 @@ public HashMap City()
                truncYear = award.getYear();
                truncYear /= 10;
                truncYear *= 10;
-               if (award.getYear() == year)
+               if (truncYear == year)
                    wonThatDecade.add(winner);
            }
            
@@ -490,7 +490,7 @@ has a Prize award of the specified category, false otherwise.
     }        
 
     public ArrayList<Laureate> getWinners() {
-        return this.laureates;
+        return (ArrayList<Laureate>) this.laureates;
     }
     /**
      * @return the nameSearch
