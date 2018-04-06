@@ -20,9 +20,14 @@ import static javafx.collections.FXCollections.observableArrayList;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -33,6 +38,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
+import javafx.stage.Stage;
 import javafx.util.Callback;
 import nobelprize.*;
 
@@ -70,6 +76,7 @@ public class Controller implements Initializable {
     
     private ObservableList<Laureate> data = FXCollections.observableArrayList();
     ArrayList<Laureate> searchResults = new ArrayList();
+    ArrayList<Laureate> allLaureates = new ArrayList();
     LaureateDatabase MrDataBase; 
     NarrowSearch searchHandler;
  
@@ -92,6 +99,7 @@ public class Controller implements Initializable {
             public ObservableValue<String> call(CellDataFeatures<Laureate, String> c) {
                 return new SimpleStringProperty(c.getValue().getFirstName());
                 }
+
         });       
         TableColumn<Laureate, String> surNameColumn = new TableColumn<>("SurName");
         surNameColumn.setMinWidth(100);
@@ -197,13 +205,19 @@ public class Controller implements Initializable {
     
     @FXML
     private Map<String, String> search1900(ActionEvent event) {
-        if(!searchQuery.containsValue("1900")){
-            searchQuery.put("Year", "1900");
-            System.out.println("Will search for decade 1900s");
-        }else{
-            searchQuery.remove("Year", "1900");
+        
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 2000));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }    
 
@@ -477,6 +491,7 @@ public class Controller implements Initializable {
         String userSearch = userIn.getText();
         //searchQuery.put("firstname", userSearch);
         searchResults = (ArrayList<Laureate>) searchHandler.getNameSearch().get(userSearch);
+        
         data.clear();
         for(Laureate laureate: searchResults){
             data.add(laureate);
@@ -494,6 +509,37 @@ public class Controller implements Initializable {
         return searchQuery;
     
     }
+    
+    @FXML
+    private void selectedRow(MouseEvent event) throws IOException {
+        Laureate row = laureateTable.getSelectionModel().getSelectedItem();
+        
+
+        
+        if (row == null) {
+            return;
+        }else if(event.getClickCount() == 2){
+            // open new window
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("FXMLPersonInfo.fxml"));
+        
+        Parent tableViewParent = loader.load();
+        
+        Scene personInfoScene = new Scene(tableViewParent);
+                
+            FXMLPersonInfoController controller = loader.getController();
+            controller.initLaureate(row);
+            Stage app_stage = ((Stage) ((Node) event.getSource()).getScene().getWindow());
+            app_stage.setScene(personInfoScene);
+            app_stage.show();       
+        }
+        
+ 
+        /**if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                System.out.println("Hello");                   
+            }*/
+        }    
+   
     
     @FXML
     private void searchResults(){
