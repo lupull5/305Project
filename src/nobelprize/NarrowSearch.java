@@ -43,9 +43,6 @@ public class NarrowSearch
         CountrySearch = BirthDeathCountry();
         DateSearch = BirthDeathDates();
         byCategory = WonPrize();
-
-
-      
     }        
     //boolean method returns true if given laureate object contains the given field.
     public boolean containsField(Laureate winner, String field)
@@ -324,7 +321,7 @@ public HashMap City()
             return "Not Available";
         }    
         int date = Integer.parseInt(year);
-        //discard the one's place. 
+       //discard the one's place. 
         date = date /10;
         date *= 10;
         String retVal = Integer.toString(date);
@@ -337,7 +334,13 @@ public HashMap City()
         {
             return "Not Available";
         }    
+        if(year.equals("Not "))
+        {
+            return "Not Available";
+        }    
+
          int date = Integer.parseInt(year);
+         
         //discard the one's place. 
         date = date /10;
         date *= 10;
@@ -527,4 +530,3 @@ has a Prize award of the specified category, false otherwise.
         return byCategory;
     }
 }
-

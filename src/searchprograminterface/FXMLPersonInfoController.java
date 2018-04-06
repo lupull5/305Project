@@ -5,6 +5,8 @@
  */
 package searchprograminterface;
 
+
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -50,7 +52,16 @@ public class FXMLPersonInfoController implements Initializable {
         died.setText(laureate.getDied());
         bornCity.setText(laureate.getBornCity());
         bornCountry.setText(laureate.getBornCountry());
+
         gender.setText(laureate.getGender());   
         laureateImage.setImage(new Image(getClass().getResource(laureate.getLaureateImage()).toExternalForm()));
+
+        gender.setText(laureate.getGender());  
+        
+        File file = new File(laureate.getLaureateImage());
+        Image pic = new Image (file.toURI().toString());
+        //System.out.println(pic);
+        laureateImage.setImage(pic);
+
     }
 }
