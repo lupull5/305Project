@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="365.0" prefWidth="544.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchprograminterface.FXMLPersonInfoController">
+   <children>
+      <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="365.0" prefWidth="542.0" style="-fx-background-color: #212F3C;" />
+      <SplitPane dividerPositions="0.3305785123966942" orientation="VERTICAL" prefHeight="365.0" prefWidth="657.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <SplitPane dividerPositions="0.26481481481481484" prefHeight="179.0" prefWidth="655.0">
+                    <items>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                           <children>
+                              <ImageView fx:id="lauraeateImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                           </children>
+                        </AnchorPane>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="151.0" prefWidth="379.0">
+                           <children>
+                              <Text layoutX="4.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: ">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="6.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="309.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year Born:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="349.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Died:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="2.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Born Location:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text layoutX="327.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:" wrappingWidth="62.12109375">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="firstName" layoutX="101.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="surName" layoutX="99.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="bornCity" layoutX="125.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="born" layoutX="401.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="died" layoutX="401.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="gender" layoutX="401.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                              <Text fx:id="bornCountry" layoutX="162.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="613.0" />
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>

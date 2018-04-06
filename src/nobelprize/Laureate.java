@@ -5,7 +5,12 @@
  */
 package nobelprize;
 
+import com.sun.media.jfxmedia.logging.Logger;
+import java.awt.Image;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  *
@@ -24,8 +29,10 @@ public class Laureate {
     private final String diedCountry;
     private final String diedCountryCode;
     private final String diedCity;
-    private final String gender;
+    private final String gender;    
     private final Prize[] prizes;
+    private String laureateImage;
+    private ArrayList<String> firstNameList = new ArrayList();
     
     public Laureate(int id, String firstname, String surname, String born, String died, String bornCountry, String bornCountryCode, String bornCity, String diedCountry, String diedCountryCode, String diedCity, String gender, Prize[] prizes){
         this.id = id;
@@ -134,5 +141,97 @@ public class Laureate {
         return prizes;
     }
     
+    private String getFields(){
+        StringBuilder fields = new StringBuilder();
+            for(Prize prize : this.getPrizes()){
+                if (!fields.toString().contains(prize.getCategory())){
+                    fields.append(prize.getCategory());
+                }
+            }
+            return fields.toString();
+    }
+
+    public ArrayList<String> makeFullNames(){
+        
+        try{            
+            ArrayList<String> firstNameComponents = new ArrayList();
+            ArrayList<String> nameCombinations = new ArrayList();
+            for(String firstName : this.getFirstName().replace("(", "").replace(")", "").split(" ") ){
+                firstNameComponents.add(firstName);
+            }
+            this.setFirstNameList(getNameVariations(firstNameComponents, nameCombinations));                     
+        } catch (NullPointerException e){
+            Logger.logMsg(1, this.firstname);
+        }
+        return null;
+    }
+    /**
+     * 
+     * @param firstNames
+     * @param nameCombinations
+     * @return 
+     */
+    private ArrayList<String> getNameVariations(ArrayList<String> firstNames, ArrayList<String> nameCombinations){
+        StringBuilder firstNameBuilder = new StringBuilder();       
+        if(!firstNames.isEmpty()){
+            Iterator<String> firstNamesIterator = firstNames.iterator();
+            String currentName = null;
+            while( firstNamesIterator.hasNext()){
+                currentName = firstNamesIterator.next();
+                firstNameBuilder.append(currentName);
+                firstNameBuilder.append("_");
+                StringBuilder fullName = new StringBuilder(firstNameBuilder.toString());
+                fullName.append(this.getSurName());
+                nameCombinations.add(fullName.toString());                                    
+            }
+            firstNames.remove(0);
+            return getNameVariations(firstNames, nameCombinations);
+        }
+        return nameCombinations;                
+    }
     
+    public HashMap getData(){
+        HashMap<String, String> laureateInfo = new HashMap();
+        laureateInfo.put("firstname", getFirstName());
+        laureateInfo.put("lastname", getSurName());
+        laureateInfo.put("born", getFirstName());
+        laureateInfo.put("died", getFirstName());
+        laureateInfo.put("bornCountry", getFirstName());
+        laureateInfo.put("diedCountry", getFirstName());
+        laureateInfo.put("diedCountryCode", getFirstName());
+        laureateInfo.put("diedCity", getFirstName());
+        laureateInfo.put("gender", getFirstName());
+        laureateInfo.put("field", getFields());           
+        return laureateInfo;
+    }        
+
+    /**
+     * @return the laureateImage
+     */
+    public String getLaureateImage() {
+        return laureateImage;
+    }
+
+    /**
+     * @param laureateImage the laureateImage to set
+     */
+    public void setLaureateImage(String laureateImage) {
+        this.laureateImage = laureateImage;
+    }
+
+    /**
+     * @return the firstNameList
+     */
+    public ArrayList<String> getFirstNameList() {
+        return firstNameList;
+    }
+
+    /**
+     * @param firstNameList the firstNameList to set
+     */
+    public void setFirstNameList(ArrayList<String> firstNameList) {
+        this.firstNameList = firstNameList;
+    }
+
 }
+
