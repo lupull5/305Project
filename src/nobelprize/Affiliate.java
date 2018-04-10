@@ -6,7 +6,8 @@
 package nobelprize;
 
 /**
- *
+ *This is a class representing an affiliate for the laureate
+ * 
  * @author Darren
  */
 class Affiliate {
@@ -32,15 +33,24 @@ class Affiliate {
             this.country = country;
         }                        
     }
-    
+    /**
+     * the Getter for AffiliateName
+     * @return 
+     */
     public String getName(){
         return this.name;        
     }
-    
+    /**
+     * The getter for the city the affiliate is from
+     * @return 
+     */
     public String getCity(){
         return this.city;
     }
-    
+    /**
+     * The getter for the affiliates country
+     * @return 
+     */
     public String getCountry(){
         return this.country;
     }

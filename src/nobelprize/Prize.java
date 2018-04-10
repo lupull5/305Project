@@ -8,7 +8,7 @@ package nobelprize;
 import java.util.ArrayList;
 
 /**
- *
+ * This class represents a laureates prize, used for building the laureate object
  * @author Darren
  */
 public class Prize {
@@ -27,7 +27,7 @@ public class Prize {
      * @param motivation
      * @param affiliate
      */
-    public Prize(int year, String category, int share, String motivation, Affiliate[] affiliations) {
+    public Prize(Integer year, String category, Integer share, String motivation, Affiliate[] affiliations) {
         this.year = year;
         this.category = category;
         this.share = share;
@@ -38,7 +38,7 @@ public class Prize {
     /**
      * @return the year
      */
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
@@ -64,6 +64,8 @@ public class Prize {
     }
 
     /**
+     * This method returns the names of the affiliates, and not just the affiliates as NetBeans thought Affiliates
+     * didn't exist in the UI.
      * @return the affiliates
      */
     public String getAffiliate() {

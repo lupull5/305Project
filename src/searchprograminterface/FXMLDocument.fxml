@@ -38,6 +38,7 @@
                                     <Button fx:id="male231" layoutX="151.0" layoutY="66.0" mnemonicParsing="false" onAction="#search1990" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1990s" textFill="#f5f5f5" />
                                     <Button fx:id="male232" layoutX="151.0" layoutY="24.0" mnemonicParsing="false" onAction="#search1980" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1980s" textFill="#f8f7f7" />
                                     <Button fx:id="male233" layoutX="151.0" layoutY="109.0" mnemonicParsing="false" onAction="#search2000" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="2000s" textFill="#fcfafa" />
+                                    <Button fx:id="male2331" layoutX="151.0" layoutY="151.0" mnemonicParsing="false" onAction="#search2010" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="2010s" textFill="#fcfafa" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -49,6 +50,7 @@
                                     <ListView prefHeight="664.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
                                     <Button fx:id="male" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Male" textFill="WHITE" />
                                     <Button fx:id="female" layoutX="24.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchFemale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Female" textFill="WHITE" />
+                                    <Button fx:id="male4" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#searchOrganization" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Organization" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                         </content>

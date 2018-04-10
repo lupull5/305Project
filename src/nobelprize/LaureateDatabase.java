@@ -28,7 +28,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
+ *This class is the laureate database, it collects all of the laureates from the nobel prize database (via JSON sile),
+ * then uses GSON to convert all of the laureates into objects.
  * @author Darren
  */
 public class LaureateDatabase {    
@@ -38,22 +39,32 @@ public class LaureateDatabase {
     File imageCollectionList;
     
     /**
-     * 
+     * The constructor for the laureate database, downloads the laureate JSON from the nobel prize API, converts
+     * it to a list of laureate objects, and gets the images for the objects if needed.
      * @throws MalformedURLException
      * @throws IOException 
      */
     public LaureateDatabase() throws MalformedURLException, IOException{  
         this.buildLaureateList(this.getJSON("http://api.nobelprize.org/v1/laureate.json", ""));        
         this.laureateListCleaner();
-        //imageHandler.collectImagesAvailable();
-        //imageCollectionList = new File("AvailableWikiImages.txt");  
-       // verifyImages(imageCollectionList);
-        //imageHandler.ImageCompressor();
-        
+        imageHandler.collectImagesAvailable();
+        imageCollectionList = new File("AvailableWikiImages.txt");  
+        verifyImages(imageCollectionList);
+        //imageHandler.ImageCompressor();        
         //this.collectLaureateImages();  
     } 
+    
+      /**
+     * @return the laureateList
+     */
+    public Collection<Laureate> getLaureateList() {
+        return laureateList;
+    }
+    
     /**
-     * 
+     * This method downloads a JSON file from a given URL, it can take additional info in case the URL has something like a 
+     * laureate name at the end. Then returns the JSON as a string
+     *
      * @param website
      * @throws MalformedURLException
      * @throws IOException 
@@ -86,7 +97,7 @@ public class LaureateDatabase {
     }
         
     /**
-     * 
+     * This method is used to clean the JSON data particularly for the LaureateJSON
      * @param jsonData
      * @return 
      */
@@ -95,8 +106,9 @@ public class LaureateDatabase {
         String cleanedJson = jsonData.replace("\"affiliations\":[[]]", affiliateTemplate).replace("null", "Not Available").replace("0000-00-00", "Not Available");
         return cleanedJson;                                
     }
+    
     /**
-     * 
+     * This converts the laureate JSON into Laureate objects and store them in a list.
      */
     private void buildLaureateList(String laureateJSON){
         Gson gson = new Gson();                
@@ -111,7 +123,7 @@ public class LaureateDatabase {
     }
     
     /**
-     * 
+     * This method removes some unnamed laureates from the laureate list.
      */
     private void laureateListCleaner(){
         List<Laureate> incorrectLaureates = new ArrayList();
@@ -123,10 +135,11 @@ public class LaureateDatabase {
         }    
         getLaureateList().removeAll(incorrectLaureates);
     }
+    
     /**
-     * 
+     * This collects the images for every laureate.
      * @throws IOException 
-     */
+     
     private void collectLaureateImages() throws IOException{
         
         String laureateImageJSON;
@@ -143,7 +156,12 @@ public class LaureateDatabase {
             }
         }
     }           
-    
+    */
+    /**
+     * This method is used to parse the JSON from wikipedia to collect the image URL
+     * @param wikiJSON
+     * @return 
+     */
     public String parseWikiJSON(String wikiJSON){
         JsonParser parser = new JsonParser();
         String imageURL = null;
@@ -159,7 +177,12 @@ public class LaureateDatabase {
         }
         return null;
     }
-    
+    /**
+     * This method is used to verify that we have all of the images a *full* database would have
+     * and collects the missing images.
+     * @param imageList
+     * @throws IOException 
+     */
     public void verifyImages(File imageList) throws IOException{
           String imageURL = null;
           try{
@@ -173,7 +196,6 @@ public class LaureateDatabase {
                     if (!imageFile.exists()){
                         if((imageURL = parseWikiJSON(getJSON("https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=", fileName.replace(".jpg", "")))) != null){
                             imageHandler.downloadImage(imageURL, fileName);
-                            System.out.println("Downlaoding one");
                         }
                     }                    
                 } catch(IOException e){                    
@@ -181,13 +203,7 @@ public class LaureateDatabase {
             }
         } catch(IOException e){            
         }        
-    }
-    /**
-     * @return the laureateList
-     */
-    public Collection<Laureate> getLaureateList() {
-        return laureateList;
-    }
+    }  
 }
 
 

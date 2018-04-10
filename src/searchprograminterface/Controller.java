@@ -111,18 +111,23 @@ public class Controller implements Initializable {
         TableColumn<Laureate, String> bornColumn = new TableColumn<>("Born");
         bornColumn.setMinWidth(100);
         bornColumn.setCellValueFactory(new PropertyValueFactory<>("born"));
+        
         TableColumn<Laureate, String> diedColumn = new TableColumn<>("Died");
         diedColumn.setMinWidth(100);
         diedColumn.setCellValueFactory(new PropertyValueFactory<>("died"));
+        
         TableColumn<Laureate, String> bornCountryColumn = new TableColumn<>("Country Born");
         bornCountryColumn.setMinWidth(100);
         bornCountryColumn.setCellValueFactory(new PropertyValueFactory<>("bornCountry"));
+        
         TableColumn<Laureate, String> bornCityColumn = new TableColumn<>("City Born");
         bornCityColumn.setMinWidth(100);
         bornCityColumn.setCellValueFactory(new PropertyValueFactory<>("bornCity"));
+        
         TableColumn<Laureate, String> genderColumn = new TableColumn<>("Gender");
         genderColumn.setMinWidth(100);
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
+        
         TableColumn<Laureate, String> prizeYearColumn = new TableColumn<>("Year Recieved");
         prizeYearColumn.setMinWidth(100);
         prizeYearColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -135,6 +140,7 @@ public class Controller implements Initializable {
                 return new SimpleStringProperty(prizeYears.toString());
             }
         });
+        
         TableColumn<Laureate, String> prizeCategoryColumn = new TableColumn<>("Category");
         prizeCategoryColumn.setMinWidth(100);
         prizeCategoryColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -146,7 +152,8 @@ public class Controller implements Initializable {
                 }
                 return new SimpleStringProperty(prizeYears.toString());
             }
-        });    
+        });  
+        
         TableColumn<Laureate, String> motivationColumn = new TableColumn<>("Category");  //YOu might wanna vedo this one
         motivationColumn.setMinWidth(100);
         motivationColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -159,6 +166,7 @@ public class Controller implements Initializable {
                 return new SimpleStringProperty(prizeYears.toString());
             }
         });
+        
         TableColumn<Laureate, String> affiliateNameColumn = new TableColumn<>("Affiliates");  //YOu might wanna vedo this one
         affiliateNameColumn.setMinWidth(100);
         affiliateNameColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -204,7 +212,176 @@ public class Controller implements Initializable {
     
     @FXML
     private Map<String, String> search1900(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
         
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1900));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }    
+
+    @FXML
+    private Map<String, String> search1910(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1910));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1920(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1920));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }  
+
+    @FXML
+    private Map<String, String> search1930(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1930));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }   
+    
+    @FXML
+    private Map<String, String> search1940(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1940));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1950(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1950));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1960(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1960));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1970(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1970));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1980(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1980));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search1990(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 1990));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    @FXML
+    private Map<String, String> search2000(ActionEvent event) {
         // ArrayList of all winners
         allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
         
@@ -218,125 +395,22 @@ public class Controller implements Initializable {
         laureateTable.setItems(data);
                
         return searchQuery;
-    }    
-
-    @FXML
-    private Map<String, String> search1910(ActionEvent event) {
-        if(!searchQuery.containsValue("1910")){
-            searchQuery.put("Year", "1910");
-            System.out.println("Will search for decade 1910s");
-        }else{
-            searchQuery.remove("Year", "1910");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
     }
     
     @FXML
-    private Map<String, String> search1920(ActionEvent event) {
-        if(!searchQuery.containsValue("1920")){
-            searchQuery.put("Year", "1920");
-            System.out.println("Will search for decade 1920s");
-        }else{
-            searchQuery.remove("Year", "1920");
+    private Map<String, String> search2010(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in a decade
+        searchResults.addAll(searchHandler.prizeByYear(allLaureates, 2010));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }  
-
-    @FXML
-    private Map<String, String> search1930(ActionEvent event) {
-        if(!searchQuery.containsValue("1930")){
-            searchQuery.put("Year", "1930");
-            System.out.println("Will search for decade 1930s");
-        }else{
-            searchQuery.remove("Year", "1930");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }   
-    
-    @FXML
-    private Map<String, String> search1940(ActionEvent event) {
-        if(!searchQuery.containsValue("1940")){
-            searchQuery.put("Year", "1940");
-            System.out.println("Will search for decade 1940s");
-        }else{
-            searchQuery.remove("Year", "1940");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search1950(ActionEvent event) {
-        if(!searchQuery.containsValue("1950")){
-            searchQuery.put("Year", "1950");
-            System.out.println("Will search for decade 1950s");
-        }else{
-            searchQuery.remove("Year", "1950");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search1960(ActionEvent event) {
-        if(!searchQuery.containsValue("1960")){
-            searchQuery.put("Year", "1960");
-            System.out.println("Will search for decade 1960s");
-        }else{
-            searchQuery.remove("Year", "1960");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search1970(ActionEvent event) {
-        if(!searchQuery.containsValue("1970")){
-            searchQuery.put("Year", "1970");
-            System.out.println("Will search for decade 1970s");
-        }else{
-            searchQuery.remove("Year", "1970");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search1980(ActionEvent event) {
-        if(!searchQuery.containsValue("1980")){
-            searchQuery.put("Year", "1980");
-            System.out.println("Will search for decade 1980s");
-        }else{
-            searchQuery.remove("Year", "1980");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search1990(ActionEvent event) {
-        if(!searchQuery.containsValue("1990")){
-            searchQuery.put("Year", "1990");
-            System.out.println("Will search for decade 1990s");
-        }else{
-            searchQuery.remove("Year", "1990");
-        }
-        System.out.println("Dictionary:" + searchQuery);
-        return searchQuery;
-    }
-    
-    @FXML
-    private Map<String, String> search2000(ActionEvent event) {
-        if(!searchQuery.containsValue("2000")){
-            searchQuery.put("Year", "2000");
-            System.out.println("Will search for decade 2000s");
-        }else{
-            searchQuery.remove("Year", "2000");
-        }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -348,30 +422,63 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchMale(ActionEvent event) {
-        if(!searchQuery.containsValue("Male")){
-            searchQuery.put("Gender", "Male");
-            System.out.println("Will search for male");
-        }else{
-            searchQuery.remove("Gender", "Male");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners that are males
+        searchResults.addAll(searchHandler.clarifyMale(allLaureates));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        
+        laureateTable.setItems(data);
+        laureateTable.refresh();
+               
         return searchQuery;
     }
 
     /**
      * When Female button is clicked, Female gender is added to the query dictionary.
-     * If Female button is clicked again, Female will be removed from search query.
      * @return searchQuery - search query dictionary
      */
     @FXML
     private Map<String, String> searchFemale(ActionEvent event) {
-        if(!searchQuery.containsValue("Female")){
-            searchQuery.put("Gender", "Female");
-            System.out.println("Will search for Female");
-        }else{
-            searchQuery.remove("Gender", "Female");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners that are females
+        searchResults.addAll(searchHandler.clarifyFemale(allLaureates));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
+        return searchQuery;
+    }
+    
+    /**
+     * When Organization button is clicked, organization is added to the query dictionary.
+     * This "gender" category is for entries that aren't people.
+     * @return searchQuery - search query dictionary
+     */
+    @FXML
+    private Map<String, String> searchOrganization(ActionEvent event) {
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners that are organizations
+        searchResults.addAll(searchHandler.clarifyUngendered(allLaureates));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
+        }
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -385,13 +492,18 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchPhysics(ActionEvent event) {
-        if(!searchQuery.containsValue("Physics")){
-            searchQuery.put("Prize", "Physics");
-            System.out.println("Will search for Physics");
-        }else{
-            searchQuery.remove("Prize", "Physics");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in Physics
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "physics"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -403,13 +515,18 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchChemistry(ActionEvent event) {
-        if(!searchQuery.containsValue("Chemistry")){
-            searchQuery.put("Prize", "Chemistry");
-            System.out.println("Will search for Chemistry");
-        }else{
-            searchQuery.remove("Prize", "Chemistry");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in chemistry
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "chemistry"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -421,13 +538,18 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchEconomics(ActionEvent event) {
-        if(!searchQuery.containsValue("Economics")){
-            searchQuery.put("Prize", "Economics");
-            System.out.println("Will search for Economics");
-        }else{
-            searchQuery.remove("Prize", "Economics");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in economics
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "economics"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
 
@@ -439,13 +561,18 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchLiterature(ActionEvent event) {
-        if(!searchQuery.containsValue("Literature")){
-            searchQuery.put("Prize", "Literature");
-            System.out.println("Will search for Literature");
-        }else{
-            searchQuery.remove("Prize", "Literature");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in literature
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "literature"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -457,13 +584,18 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchMedicine(ActionEvent event) {
-        if(!searchQuery.containsValue("Medicine")){
-            searchQuery.put("Prize", "Medicine");
-            System.out.println("Will search for Medicine");
-        }else{
-            searchQuery.remove("Prize", "Medicine");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in medicine
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "medicine"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
     
@@ -475,16 +607,25 @@ public class Controller implements Initializable {
      */
     @FXML
     private Map<String, String> searchPeace(ActionEvent event) {
-        if(!searchQuery.containsValue("Peace")){
-            searchQuery.put("Prize", "Peace");
-            System.out.println("Will search for Peace");
-        }else{
-            searchQuery.remove("Prize", "Peace");
+        // ArrayList of all winners
+        allLaureates = (ArrayList<Laureate>) searchHandler.getWinners();
+        
+        // ArraList of all winners in peace category
+        searchResults.addAll(searchHandler.clarifyCategory(allLaureates, "peace"));
+        
+        data.clear();
+        for(Laureate laureate: searchResults){
+            data.add(laureate);
         }
-        System.out.println("Dictionary:" + searchQuery);
+        laureateTable.setItems(data);
+               
         return searchQuery;
     }
-
+    
+    /**
+     * When people enter a name in the search bar, all matches are added to the searchQuery.
+     * @return searchQuery - containing all Laureates that match the name provide.
+     */
     @FXML 
     private Map<String, String> searchText(){
         String userSearch = userIn.getText();
@@ -497,34 +638,30 @@ public class Controller implements Initializable {
         }
         laureateTable.setItems(data);
         
-        
-        //results.setText(searchResults.get(0).getLaureateImage());
-        Iterator<Laureate> peter = searchResults.iterator();
-        while (peter.hasNext()){
-            Laureate tom = peter.next();
-            System.out.println(tom.getBorn());
-        }
-        
         return searchQuery;
     
     }
     
+    /**
+     * Double clicking a row will open a new window that shows detail of the 
+     * person/organization selected from the table.
+     * @param event - mouse click event
+     * @throws IOException - throws exception if nothing/wrong search query entered.
+     */
     @FXML
     private void selectedRow(MouseEvent event) throws IOException {
         Laureate row = laureateTable.getSelectionModel().getSelectedItem();
-        
-
-        
+       
         if (row == null) {
             return;
         }else if(event.getClickCount() == 2){
             // open new window
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FXMLPersonInfo.fxml"));
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("FXMLPersonInfo.fxml"));
         
-        Parent tableViewParent = loader.load();
+            Parent tableViewParent = loader.load();
         
-        Scene personInfoScene = new Scene(tableViewParent);
+            Scene personInfoScene = new Scene(tableViewParent);
                 
             FXMLPersonInfoController controller = loader.getController();
             controller.initLaureate(row);
@@ -532,16 +669,7 @@ public class Controller implements Initializable {
             app_stage.setScene(personInfoScene);
             app_stage.show();       
         }
-        
- 
-        /**if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-                System.out.println("Hello");                   
-            }*/
-        }    
+    }    
    
     
-    @FXML
-    private void searchResults(){
-        results.setText("Hello");
-    }
 }

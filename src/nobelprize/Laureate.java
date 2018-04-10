@@ -6,10 +6,7 @@
 package nobelprize;
 
 import com.sun.media.jfxmedia.logging.Logger;
-import java.awt.Image;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Iterator;
 
 /**
@@ -140,72 +137,7 @@ public class Laureate {
     public Prize[] getPrizes() {
         return prizes;
     }
-    
-    private String getFields(){
-        StringBuilder fields = new StringBuilder();
-            for(Prize prize : this.getPrizes()){
-                if (!fields.toString().contains(prize.getCategory())){
-                    fields.append(prize.getCategory());
-                }
-            }
-            return fields.toString();
-    }
-
-    public ArrayList<String> makeFullNames(){
-        
-        try{            
-            ArrayList<String> firstNameComponents = new ArrayList();
-            ArrayList<String> nameCombinations = new ArrayList();
-            for(String firstName : this.getFirstName().replace("(", "").replace(")", "").split(" ") ){
-                firstNameComponents.add(firstName);
-            }
-            this.setFirstNameList(getNameVariations(firstNameComponents, nameCombinations));                     
-        } catch (NullPointerException e){
-            Logger.logMsg(1, this.firstname);
-        }
-        return null;
-    }
-    /**
-     * 
-     * @param firstNames
-     * @param nameCombinations
-     * @return 
-     */
-    private ArrayList<String> getNameVariations(ArrayList<String> firstNames, ArrayList<String> nameCombinations){
-        StringBuilder firstNameBuilder = new StringBuilder();       
-        if(!firstNames.isEmpty()){
-            Iterator<String> firstNamesIterator = firstNames.iterator();
-            String currentName = null;
-            while( firstNamesIterator.hasNext()){
-                currentName = firstNamesIterator.next();
-                firstNameBuilder.append(currentName);
-                firstNameBuilder.append("_");
-                StringBuilder fullName = new StringBuilder(firstNameBuilder.toString());
-                fullName.append(this.getSurName());
-                nameCombinations.add(fullName.toString());                                    
-            }
-            firstNames.remove(0);
-            return getNameVariations(firstNames, nameCombinations);
-        }
-        return nameCombinations;                
-    }
-    
-    public HashMap getData(){
-        HashMap<String, String> laureateInfo = new HashMap();
-        laureateInfo.put("firstname", getFirstName());
-        laureateInfo.put("lastname", getSurName());
-        laureateInfo.put("born", getFirstName());
-        laureateInfo.put("died", getFirstName());
-        laureateInfo.put("bornCountry", getFirstName());
-        laureateInfo.put("diedCountry", getFirstName());
-        laureateInfo.put("diedCountryCode", getFirstName());
-        laureateInfo.put("diedCity", getFirstName());
-        laureateInfo.put("gender", getFirstName());
-        laureateInfo.put("field", getFields());           
-        return laureateInfo;
-    }        
-
-    /**
+        /**
      * @return the laureateImage
      */
     public String getLaureateImage() {
@@ -232,6 +164,78 @@ public class Laureate {
     public void setFirstNameList(ArrayList<String> firstNameList) {
         this.firstNameList = firstNameList;
     }
-
+    
+    /**
+     * 
+     * @return 
+     */
+    private String getPrizeFields(){
+        StringBuilder fields = new StringBuilder();
+            for(Prize prize : this.getPrizes()){
+                if (!fields.toString().contains(prize.getCategory())){
+                    fields.append(prize.getCategory());
+                }
+            }
+            return fields.toString();
+    }
+    /**
+    * This method turns the laureates first name into a more appropriate name to be used in URLs.
+    * @return 
+    */
+    public ArrayList<String> makeFullNames(){
+        
+        try{            
+            ArrayList<String> firstNameComponents = new ArrayList();
+            ArrayList<String> nameCombinations = new ArrayList();
+            for(String firstName : this.getFirstName().replace("(", "").replace(")", "").split(" ") ){
+                firstNameComponents.add(firstName);
+            }
+            this.setFirstNameList(getNameVariations(firstNameComponents, nameCombinations));                     
+        } catch (NullPointerException e){
+            Logger.logMsg(1, this.firstname);
+        }
+        return null;
+    }
+    /**
+    * This method makes *almost* every combination of a person first name. This is used as wikipedia uses
+    * different combinations of a laureates first name so in able to find the appropriate URL, we need to
+    * test more then just the first name.
+    * @param firstNames
+    * @param nameCombinations
+    * @return 
+    */
+    private ArrayList<String> getNameVariations(ArrayList<String> firstNames, ArrayList<String> nameCombinations){
+        StringBuilder firstNameBuilder = new StringBuilder();       
+        if(!firstNames.isEmpty()){
+            Iterator<String> firstNamesIterator = firstNames.iterator();
+            String currentName = null;
+            while( firstNamesIterator.hasNext()){
+                currentName = firstNamesIterator.next();
+                firstNameBuilder.append(currentName);
+                firstNameBuilder.append("_");
+                StringBuilder fullName = new StringBuilder(firstNameBuilder.toString());
+                fullName.append(this.getSurName());
+                nameCombinations.add(fullName.toString());                                    
+            }
+            firstNames.remove(0);
+            return getNameVariations(firstNames, nameCombinations);
+        }
+        return nameCombinations;                
+    }
+    
+        /*
+    public HashMap getData(){
+        HashMap<String, String> laureateInfo = new HashMap();
+        laureateInfo.put("firstname", getFirstName());
+        laureateInfo.put("lastname", getSurName());
+        laureateInfo.put("born", getFirstName());
+        laureateInfo.put("died", getFirstName());
+        laureateInfo.put("bornCountry", getFirstName());
+        laureateInfo.put("diedCountry", getFirstName());
+        laureateInfo.put("diedCountryCode", getFirstName());
+        laureateInfo.put("diedCity", getFirstName());
+        laureateInfo.put("gender", getFirstName());
+        laureateInfo.put("field", getPrizeFields());           
+        return laureateInfo;
+    }    */  
 }
-
