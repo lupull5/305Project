@@ -222,20 +222,4 @@ public class Laureate {
         }
         return nameCombinations;                
     }
-    
-        /*
-    public HashMap getData(){
-        HashMap<String, String> laureateInfo = new HashMap();
-        laureateInfo.put("firstname", getFirstName());
-        laureateInfo.put("lastname", getSurName());
-        laureateInfo.put("born", getFirstName());
-        laureateInfo.put("died", getFirstName());
-        laureateInfo.put("bornCountry", getFirstName());
-        laureateInfo.put("diedCountry", getFirstName());
-        laureateInfo.put("diedCountryCode", getFirstName());
-        laureateInfo.put("diedCity", getFirstName());
-        laureateInfo.put("gender", getFirstName());
-        laureateInfo.put("field", getPrizeFields());           
-        return laureateInfo;
-    }    */  
 }

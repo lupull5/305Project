@@ -3,7 +3,6 @@
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -14,14 +13,14 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>
-                  <SplitPane dividerPositions="0.26481481481481484" prefHeight="179.0" prefWidth="655.0">
+                  <SplitPane dividerPositions="0.23736600306278713" prefHeight="126.0" prefWidth="655.0">
                     <items>
                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                            <children>
-                              <ImageView fx:id="laureateImage" fitHeight="100.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fx:id="laureateImage" fitHeight="120.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
                            </children>
                         </AnchorPane>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="151.0" prefWidth="379.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="5.0" prefWidth="495.0">
                            <children>
                               <Text layoutX="4.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First Name: ">
                                  <font>
@@ -66,27 +65,7 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-          <AnchorPane fx:id="prizesPane" minHeight="0.0" minWidth="0.0" prefHeight="240.0" prefWidth="613.0">
-               <children>
-                  <Pane layoutX="1.0" prefHeight="100.0" prefWidth="655.0">
-                     <children>
-                        <Text layoutX="34.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="34.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Motivation">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                        <Text layoutX="34.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affiliate">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Text>
-                     </children></Pane>
-               </children></AnchorPane>
+          <AnchorPane fx:id="prizesPane" minHeight="0.0" minWidth="0.0" prefHeight="182.0" prefWidth="655.0" />
         </items>
       </SplitPane>
    </children>

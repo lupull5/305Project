@@ -47,10 +47,10 @@ public class LaureateDatabase {
     public LaureateDatabase() throws MalformedURLException, IOException{  
         this.buildLaureateList(this.getJSON("http://api.nobelprize.org/v1/laureate.json", ""));        
         this.laureateListCleaner();
-        imageHandler.collectImagesAvailable();
+        //imageHandler.collectImagesAvailable();
         imageCollectionList = new File("AvailableWikiImages.txt");  
         verifyImages(imageCollectionList);
-        //imageHandler.ImageCompressor();        
+        imageHandler.ImageCompressor();        
         //this.collectLaureateImages();  
     } 
     

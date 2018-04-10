@@ -70,7 +70,7 @@ public class ImageHandler {
         if (image.exists()){
             try{
             BufferedImage img = ImageIO.read(image);
-            BufferedImage scaledImg = Scalr.resize(img, 200);
+            BufferedImage scaledImg = Scalr.resize(img, 150, 120);
             ImageIO.write(scaledImg, "png", image);  
             } catch(IOException e){                
             }
