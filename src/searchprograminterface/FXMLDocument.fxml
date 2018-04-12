@@ -8,7 +8,6 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TitledPane?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
@@ -27,18 +26,18 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <ListView prefHeight="666.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
-                                    <Button fx:id="male1" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#search1900" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1900s" textFill="WHITE" />
-                                    <Button fx:id="male3" layoutX="24.0" layoutY="109.0" mnemonicParsing="false" onAction="#search1920" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1920s" textFill="#f5f5f5" />
-                                    <Button fx:id="male2" layoutX="24.0" layoutY="66.0" mnemonicParsing="false" onAction="#search1910" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655 #0E6655; -fx-background-radius: 6;" text="1910s" textFill="WHITE" />
-                                    <Button fx:id="male21" layoutX="24.0" layoutY="151.0" mnemonicParsing="false" onAction="#search1930" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1930s" textFill="#f2f0f0" />
-                                    <Button fx:id="male22" layoutX="24.0" layoutY="193.0" mnemonicParsing="false" onAction="#search1940" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1940s" textFill="#fffefe" />
-                                    <Button fx:id="male23" layoutX="24.0" layoutY="322.0" mnemonicParsing="false" onAction="#search1970" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1970s" textFill="#fcf9f9" />
-                                    <Button fx:id="male24" layoutX="24.0" layoutY="279.0" mnemonicParsing="false" onAction="#search1960" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1960s" textFill="#f5f4f4" />
-                                    <Button fx:id="male25" layoutX="24.0" layoutY="236.0" mnemonicParsing="false" onAction="#search1950" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1950s" textFill="#f8f5f5" />
-                                    <Button fx:id="male231" layoutX="151.0" layoutY="66.0" mnemonicParsing="false" onAction="#search1990" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1990s" textFill="#f5f5f5" />
-                                    <Button fx:id="male232" layoutX="151.0" layoutY="24.0" mnemonicParsing="false" onAction="#search1980" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="1980s" textFill="#f8f7f7" />
-                                    <Button fx:id="male233" layoutX="151.0" layoutY="109.0" mnemonicParsing="false" onAction="#search2000" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="2000s" textFill="#fcfafa" />
-                                    <Button fx:id="male2331" layoutX="151.0" layoutY="151.0" mnemonicParsing="false" onAction="#search2010" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="2010s" textFill="#fcfafa" />
+                                    <Button fx:id="male1" layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#search1900" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1900s" textFill="WHITE" />
+                                    <Button fx:id="male3" layoutX="24.0" layoutY="109.0" mnemonicParsing="false" onAction="#search1920" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1920s" textFill="#f5f5f5" />
+                                    <Button fx:id="male2" layoutX="24.0" layoutY="66.0" mnemonicParsing="false" onAction="#search1910" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1910s" textFill="WHITE" />
+                                    <Button fx:id="male21" layoutX="24.0" layoutY="151.0" mnemonicParsing="false" onAction="#search1930" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1930s" textFill="#f2f0f0" />
+                                    <Button fx:id="male22" layoutX="24.0" layoutY="193.0" mnemonicParsing="false" onAction="#search1940" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1940s" textFill="#fffefe" />
+                                    <Button fx:id="male23" layoutX="150.0" layoutY="68.0" mnemonicParsing="false" onAction="#search1970" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1970s" textFill="#fcf9f9" />
+                                    <Button fx:id="male24" layoutX="150.0" layoutY="25.0" mnemonicParsing="false" onAction="#search1960" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1960s" textFill="#f5f4f4" />
+                                    <Button fx:id="male25" layoutX="24.0" layoutY="236.0" mnemonicParsing="false" onAction="#search1950" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1950s" textFill="#f8f5f5" />
+                                    <Button fx:id="male231" layoutX="150.0" layoutY="152.0" mnemonicParsing="false" onAction="#search1990" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1990s" textFill="#f5f5f5" />
+                                    <Button fx:id="male232" layoutX="150.0" layoutY="110.0" mnemonicParsing="false" onAction="#search1980" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="1980s" textFill="#f8f7f7" />
+                                    <Button fx:id="male233" layoutX="150.0" layoutY="195.0" mnemonicParsing="false" onAction="#search2000" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="2000s" textFill="#fcfafa" />
+                                    <Button fx:id="male2331" layoutX="150.0" layoutY="237.0" mnemonicParsing="false" onAction="#search2010" prefHeight="32.0" prefWidth="66.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="2010s" textFill="#fcfafa" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -48,9 +47,9 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                                  <children>
                                     <ListView prefHeight="664.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
-                                    <Button fx:id="male" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Male" textFill="WHITE" />
-                                    <Button fx:id="female" layoutX="24.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchFemale" prefHeight="32.0" prefWidth="66.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Female" textFill="WHITE" />
-                                    <Button fx:id="male4" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#searchOrganization" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Organization" textFill="WHITE" />
+                                    <Button fx:id="male" layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#searchMale" prefHeight="32.0" prefWidth="87.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Male" textFill="WHITE" />
+                                    <Button fx:id="female" layoutX="24.0" layoutY="58.0" mnemonicParsing="false" onAction="#searchFemale" prefHeight="32.0" prefWidth="88.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Female" textFill="WHITE" />
+                                    <Button fx:id="male4" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" onAction="#searchOrganization" prefHeight="32.0" prefWidth="88.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Organization" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -60,12 +59,12 @@
                           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="592.0" prefWidth="239.0">
                                  <children>
                                     <ListView prefHeight="665.0" prefWidth="241.0" style="-fx-background-color: #212F3C;" />
-                                    <Button fx:id="male11" layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#searchPhysics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Physics" textFill="WHITE" />
-                                    <Button fx:id="male12" layoutX="34.0" layoutY="119.0" mnemonicParsing="false" onAction="#searchEconomics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Economics" textFill="WHITE" />
-                                    <Button fx:id="male13" layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#searchChemistry" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Chemistry" textFill="WHITE" />
-                                    <Button fx:id="male14" layoutX="34.0" layoutY="248.0" mnemonicParsing="false" onAction="#searchPeace" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Peace" textFill="WHITE" />
-                                    <Button fx:id="male15" layoutX="34.0" layoutY="205.0" mnemonicParsing="false" onAction="#searchMedicine" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Medicine" textFill="WHITE" />
-                                    <Button fx:id="male16" layoutX="34.0" layoutY="162.0" mnemonicParsing="false" onAction="#searchLiterature" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-background-radius: 6;" text="Literature" textFill="WHITE" />
+                                    <Button fx:id="male11" layoutX="34.0" layoutY="34.0" mnemonicParsing="false" onAction="#searchPhysics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Physics" textFill="WHITE" />
+                                    <Button fx:id="male12" layoutX="34.0" layoutY="119.0" mnemonicParsing="false" onAction="#searchEconomics" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Economics" textFill="WHITE" />
+                                    <Button fx:id="male13" layoutX="34.0" layoutY="77.0" mnemonicParsing="false" onAction="#searchChemistry" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Chemistry" textFill="WHITE" />
+                                    <Button fx:id="male14" layoutX="34.0" layoutY="248.0" mnemonicParsing="false" onAction="#searchPeace" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Peace" textFill="WHITE" />
+                                    <Button fx:id="male15" layoutX="34.0" layoutY="205.0" mnemonicParsing="false" onAction="#searchMedicine" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Medicine" textFill="WHITE" />
+                                    <Button fx:id="male16" layoutX="34.0" layoutY="162.0" mnemonicParsing="false" onAction="#searchLiterature" prefHeight="32.0" prefWidth="99.0" style="-fx-background-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Literature" textFill="WHITE" />
                                  </children>
                               </AnchorPane>
                         </content>
@@ -77,7 +76,7 @@
                         <Font name="Arial Bold" size="12.0" />
                      </font>
                   </TextField>
-                  <Button layoutX="142.0" layoutY="1.0" mnemonicParsing="false" onAction="#searchText" prefHeight="32.0" prefWidth="99.0" style="-fx-background-color: #0E6655; -fx-border-width: 6; -fx-border-radius: 6;" text="Search" textFill="WHITE">
+                  <Button layoutX="142.0" layoutY="1.0" mnemonicParsing="false" onAction="#searchText" prefHeight="32.0" prefWidth="99.0" style="-fx-border-width: 6; -fx-border-radius: 6;" stylesheets="@../Styles/searchButtonEffects.css" text="Search" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
@@ -91,14 +90,14 @@
                 <Label alignment="CENTER" layoutX="14.0" layoutY="14.0" style="&#10;" text="Results" textAlignment="CENTER" textFill="#eeeeee" wrapText="false">
                            <font>
                       <Font name="System Bold" size="18.0" fx:id="x1" />
-                           </font></Label>
-                        <Button layoutX="803.0" layoutY="7.0" minHeight="21.0" minWidth="47.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="41.0" prefWidth="54.0" style="-fx-background-color: #B71C1C; -fx-border-color: #B71C1C; -fx-border-width: 3; -fx-background-radius: 6; -fx-border-radius: 6;" text="Exit" textFill="#fff8f8">
+                           </font>
+                        </Label>
+                        <Button layoutX="803.0" layoutY="7.0" minHeight="21.0" minWidth="47.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="41.0" prefWidth="54.0" style="-fx-border-color: #B71C1C; -fx-border-width: 3; -fx-background-radius: 6; -fx-border-radius: 6;" stylesheets="@../Styles/exitButtonEffects.css" text="Exit" textFill="#fff8f8">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <TableView fx:id="laureateTable" layoutX="14.0" layoutY="53.0" onMouseClicked="#selectedRow" prefHeight="372.0" prefWidth="851.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-border-radius: 6; -fx-background-radius: 8;" />
-                        <ImageView fitHeight="316.0" fitWidth="261.0" layoutX="14.0" layoutY="441.0" pickOnBounds="true" preserveRatio="true" />
+                        <TableView fx:id="laureateTable" layoutX="14.0" layoutY="53.0" onMouseClicked="#selectedRow" prefHeight="704.0" prefWidth="851.0" style="-fx-border-color: #000000; -fx-border-width: 3; -fx-border-radius: 6; -fx-background-radius: 8;" />
               </children>
             </AnchorPane>
                </top>

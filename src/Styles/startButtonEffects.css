@@ -1,0 +1,14 @@
+
+/*
+CSS file used to for visual effects for start button 
+*/
+
+.button{
+    -fx-font-wight: bold;
+    -fx-background-color:  #1B4F72; 
+}
+
+.button:hover{
+    -fx-font-wight: bold;
+    -fx-background-color: #1565C0; 
+}

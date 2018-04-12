@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package searchprograminterface;
 
 
@@ -11,7 +6,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
@@ -24,17 +18,15 @@ import javafx.scene.layout.BorderWidths;
 import javafx.scene.layout.CornerRadii;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import static javafx.scene.paint.Color.WHITE;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import nobelprize.*;
 
 /**
- * FXML Controller class
- *
- * @author arnoldom7
+ * FXML Controller class for the Laureate details GUI
  */
 public class FXMLPersonInfoController implements Initializable {
     
@@ -56,9 +48,12 @@ public class FXMLPersonInfoController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
- 
     }    
-
+    
+    /**
+     * Method to set all the information on the screen for the laureate
+     * @param laureate - person whose information is displayed
+     */
     public void initLaureate(Laureate laureate){
         this.laureate = laureate;
         firstName.setText(laureate.getFirstName());
@@ -76,11 +71,17 @@ public class FXMLPersonInfoController implements Initializable {
             pane.setLayoutY(layoutIncrementer);
             layoutIncrementer += 110;
         }
+        laureateImage.fitWidthProperty();
         laureateImage.setImage(new Image(new File(laureate.getLaureateImage()).toURI().toString())); 
         
         
     }
     
+    /**
+     * Class that builds a pane to display the Laureate's information 
+     * @param prize - prize object to get information
+     * @return complete - a built pane 
+     */
     private Pane buildPrize(Prize prize){
         Collection<Text> textHolder = new ArrayList();
         
@@ -94,17 +95,26 @@ public class FXMLPersonInfoController implements Initializable {
         textHolder.add(textBuilder(prize.getCategory(), 104, 56));
         textHolder.add(textBuilder(prize.getMotivation(), 104, 109));
         textHolder.add(textBuilder(prize.getAffiliate(), 104, 82));
+        
         Pane complete = new Pane();
         complete.setBorder(new Border(new BorderStroke(Color.BLACK, BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
         complete.getChildren().addAll(textHolder);
         return complete;
     }
     
+    /**
+     * Method that sets the text to show in the build prize pane
+     * @param text - information of laureate
+     * @param xLoc - x coordinate location
+     * @param yLoc - y coordinate location
+     * @return newText - formated text
+     */
     private Text textBuilder(String text, Integer xLoc, Integer yLoc){
         Text newText = new Text(text);
         newText.setLayoutX(xLoc);
         newText.setLayoutY(yLoc);
         newText.setFont(Font.font("System", FontWeight.LIGHT, FontPosture.REGULAR, 16));
+        newText.setFill(WHITE);
         return newText;
     }
 }

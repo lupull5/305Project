@@ -1,0 +1,14 @@
+
+/*
+CSS file used to for visual effects forexit buttons button 
+*/
+
+.button{
+    -fx-font-wight: bold;
+    -fx-background-color: #B71C1C; 
+}
+
+.button:hover{
+    -fx-font-wight: bold;
+    -fx-background-color: #330000; 
+}

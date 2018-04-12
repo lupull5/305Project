@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package searchprograminterface;
 
 import java.io.IOException;
@@ -26,7 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Button;
-import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.control.TableView;
@@ -35,24 +30,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 import nobelprize.*;
 
 
 /**
- * FXML Controller class
+ * FXML Controller class for the main GUI 
  *
- * @author arnol
+ * @author Arnoldo
  */
 public class Controller implements Initializable {
-
-    @FXML
-    private Color x2;
-    @FXML
-    private Font x1;
     
     @FXML private Accordion categories;
     @FXML private TitledPane year;
@@ -91,6 +79,10 @@ public class Controller implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        // Setting up colums
+        
+        // First Name Column
         TableColumn<Laureate, String> firstNameColumn = new TableColumn<>("FirstName");
         firstNameColumn.setMinWidth(100);
         firstNameColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -98,8 +90,9 @@ public class Controller implements Initializable {
             public ObservableValue<String> call(CellDataFeatures<Laureate, String> c) {
                 return new SimpleStringProperty(c.getValue().getFirstName());
                 }
-
-        });       
+        });
+        
+        // Last Name Column
         TableColumn<Laureate, String> surNameColumn = new TableColumn<>("SurName");
         surNameColumn.setMinWidth(100);
         surNameColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -107,27 +100,34 @@ public class Controller implements Initializable {
             public ObservableValue<String> call(CellDataFeatures<Laureate, String> c) {
                 return new SimpleStringProperty(c.getValue().getSurName());
                 }
-        }); 
+        });
+        
+        // Born Year Column
         TableColumn<Laureate, String> bornColumn = new TableColumn<>("Born");
         bornColumn.setMinWidth(100);
         bornColumn.setCellValueFactory(new PropertyValueFactory<>("born"));
         
+        // Died Year Column
         TableColumn<Laureate, String> diedColumn = new TableColumn<>("Died");
         diedColumn.setMinWidth(100);
         diedColumn.setCellValueFactory(new PropertyValueFactory<>("died"));
         
+        // Country born Column
         TableColumn<Laureate, String> bornCountryColumn = new TableColumn<>("Country Born");
         bornCountryColumn.setMinWidth(100);
         bornCountryColumn.setCellValueFactory(new PropertyValueFactory<>("bornCountry"));
         
+        // City Born Column
         TableColumn<Laureate, String> bornCityColumn = new TableColumn<>("City Born");
         bornCityColumn.setMinWidth(100);
         bornCityColumn.setCellValueFactory(new PropertyValueFactory<>("bornCity"));
         
+        // Gender Column
         TableColumn<Laureate, String> genderColumn = new TableColumn<>("Gender");
         genderColumn.setMinWidth(100);
         genderColumn.setCellValueFactory(new PropertyValueFactory<>("gender"));
         
+        // Year prize recieved Column
         TableColumn<Laureate, String> prizeYearColumn = new TableColumn<>("Year Recieved");
         prizeYearColumn.setMinWidth(100);
         prizeYearColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -141,6 +141,7 @@ public class Controller implements Initializable {
             }
         });
         
+        // Field for prize won
         TableColumn<Laureate, String> prizeCategoryColumn = new TableColumn<>("Category");
         prizeCategoryColumn.setMinWidth(100);
         prizeCategoryColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
@@ -154,7 +155,8 @@ public class Controller implements Initializable {
             }
         });  
         
-        TableColumn<Laureate, String> motivationColumn = new TableColumn<>("Category");  //YOu might wanna vedo this one
+        // Motivation column
+        TableColumn<Laureate, String> motivationColumn = new TableColumn<>("Motivation"); 
         motivationColumn.setMinWidth(100);
         motivationColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
             @Override
@@ -167,7 +169,8 @@ public class Controller implements Initializable {
             }
         });
         
-        TableColumn<Laureate, String> affiliateNameColumn = new TableColumn<>("Affiliates");  //YOu might wanna vedo this one
+        // Affiliates column
+        TableColumn<Laureate, String> affiliateNameColumn = new TableColumn<>("Affiliates");
         affiliateNameColumn.setMinWidth(100);
         affiliateNameColumn.setCellValueFactory(new Callback<CellDataFeatures<Laureate, String>, ObservableValue<String>>() {
             @Override
@@ -180,7 +183,7 @@ public class Controller implements Initializable {
             }
         });
         
-        
+        // add colums to the table to display data
         laureateTable.getColumns().addAll(
                 firstNameColumn,
                 surNameColumn,
@@ -195,11 +198,6 @@ public class Controller implements Initializable {
                 affiliateNameColumn
         );
     }    
-
-    @FXML
-    private void searchButtonClicked(ActionEvent event) {
-        System.out.println("Searching...");
-    }
     
     @FXML
     private void exitButtonClicked(ActionEvent event) throws IOException {
@@ -210,6 +208,9 @@ public class Controller implements Initializable {
     
     // Year Tab
     
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */
     @FXML
     private Map<String, String> search1900(ActionEvent event) {
         // ArrayList of all winners
@@ -227,6 +228,9 @@ public class Controller implements Initializable {
         return searchQuery;
     }    
 
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */
     @FXML
     private Map<String, String> search1910(ActionEvent event) {
         // ArrayList of all winners
@@ -243,7 +247,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */
     @FXML
     private Map<String, String> search1920(ActionEvent event) {
         // ArrayList of all winners
@@ -261,6 +268,9 @@ public class Controller implements Initializable {
         return searchQuery;
     }  
 
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1930(ActionEvent event) {
         // ArrayList of all winners
@@ -277,7 +287,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }   
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1940(ActionEvent event) {
         // ArrayList of all winners
@@ -294,7 +307,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1950(ActionEvent event) {
         // ArrayList of all winners
@@ -311,7 +327,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1960(ActionEvent event) {
         // ArrayList of all winners
@@ -328,7 +347,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1970(ActionEvent event) {
         // ArrayList of all winners
@@ -345,7 +367,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1980(ActionEvent event) {
         // ArrayList of all winners
@@ -362,7 +387,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search1990(ActionEvent event) {
         // ArrayList of all winners
@@ -379,7 +407,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search2000(ActionEvent event) {
         // ArrayList of all winners
@@ -396,7 +427,10 @@ public class Controller implements Initializable {
                
         return searchQuery;
     }
-    
+
+     /**
+     * When a year button is clicked, that year is added to the query dictionary.
+     */    
     @FXML
     private Map<String, String> search2010(ActionEvent event) {
         // ArrayList of all winners
@@ -418,7 +452,6 @@ public class Controller implements Initializable {
     
     /**
      * When male button is clicked, male gender is added to the query dictionary.
-     * If male button is clicked again, male will be removed from search query.
      */
     @FXML
     private Map<String, String> searchMale(ActionEvent event) {
@@ -441,7 +474,6 @@ public class Controller implements Initializable {
 
     /**
      * When Female button is clicked, Female gender is added to the query dictionary.
-     * @return searchQuery - search query dictionary
      */
     @FXML
     private Map<String, String> searchFemale(ActionEvent event) {
@@ -486,8 +518,7 @@ public class Controller implements Initializable {
     
     /**
      * When Physics button is pressed, Physics is added to the query dictionary 
-     * with the key set as prize. If clicked again, Physics would be removed from 
-     * query dictionary. 
+     * with the key set as prize. 
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -509,8 +540,7 @@ public class Controller implements Initializable {
     
     /**
      * When Chemistry button is pressed, Chemistry is added to the query dictionary 
-     * with the key set as prize. If clicked again, Chemistry would be removed from 
-     * query dictionary. 
+     * with the key set as prize.  
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -532,8 +562,7 @@ public class Controller implements Initializable {
     
     /**
      * When Economics button is pressed, Economics is added to the query dictionary 
-     * with the key set as prize. If clicked again, Economics would be removed from 
-     * query dictionary. 
+     * with the key set as prize. 
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -555,8 +584,7 @@ public class Controller implements Initializable {
 
     /**
      * When Literature button is pressed, Literature is added to the query dictionary 
-     * with the key set as prize. If clicked again, Literature would be removed from 
-     * query dictionary. 
+     * with the key set as prize. 
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -578,8 +606,7 @@ public class Controller implements Initializable {
     
     /**
      * When Medicine button is pressed, Medicine is added to the query dictionary 
-     * with the key set as prize. If clicked again, Medicine would be removed from 
-     * query dictionary. 
+     * with the key set as prize. 
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -601,8 +628,7 @@ public class Controller implements Initializable {
     
     /**
      * When Peace button is pressed, Peace is added to the query dictionary 
-     * with the key set as prize. If clicked again, Peace would be removed from 
-     * query dictionary. 
+     * with the key set as prize. 
      * @return searchQuery - search query dictionary
      */
     @FXML
@@ -629,15 +655,23 @@ public class Controller implements Initializable {
     @FXML 
     private Map<String, String> searchText(){
         String userSearch = userIn.getText();
-        //searchQuery.put("firstname", userSearch);
-        searchResults = (ArrayList<Laureate>) searchHandler.getNameSearch().get(userSearch);
         
-        data.clear();
-        for(Laureate laureate: searchResults){
-            data.add(laureate);
+        //upper case first letter of user input for proper search in database
+        //https://stackoverflow.com/questions/5725892/how-to-capitalize-the-first-letter-of-word-in-a-string-using-java
+        try{
+          userSearch = userSearch.substring(0, 1).toUpperCase() + userSearch.substring(1);
+        }catch (StringIndexOutOfBoundsException e) {
         }
-        laureateTable.setItems(data);
-        
+        searchResults = (ArrayList<Laureate>) searchHandler.getNameSearch().get(userSearch);
+        if(searchResults == null){
+            System.out.println("This is bad input");
+        }else{
+            data.clear();
+            for(Laureate laureate: searchResults){
+                data.add(laureate);
+            }
+            laureateTable.setItems(data);
+        }
         return searchQuery;
     
     }
@@ -665,9 +699,9 @@ public class Controller implements Initializable {
                 
             FXMLPersonInfoController controller = loader.getController();
             controller.initLaureate(row);
-            Stage app_stage = ((Stage) ((Node) event.getSource()).getScene().getWindow());
-            app_stage.setScene(personInfoScene);
-            app_stage.show();       
+            Stage secondStage = new Stage();
+            secondStage.setScene(personInfoScene);
+            secondStage.show();       
         }
     }    
    

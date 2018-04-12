@@ -164,20 +164,7 @@ public class Laureate {
     public void setFirstNameList(ArrayList<String> firstNameList) {
         this.firstNameList = firstNameList;
     }
-    
-    /**
-     * 
-     * @return 
-     */
-    private String getPrizeFields(){
-        StringBuilder fields = new StringBuilder();
-            for(Prize prize : this.getPrizes()){
-                if (!fields.toString().contains(prize.getCategory())){
-                    fields.append(prize.getCategory());
-                }
-            }
-            return fields.toString();
-    }
+ 
     /**
     * This method turns the laureates first name into a more appropriate name to be used in URLs.
     * @return 

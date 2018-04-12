@@ -1,0 +1,14 @@
+
+/*
+CSS file used to for visual effects for search and other buttons 
+*/
+
+.button{
+    -fx-font-wight: bold;
+    -fx-background-color: #0E6655; 
+}
+
+.button:hover{
+    -fx-font-wight: bold;
+    -fx-background-color: #009688; 
+}

@@ -18,21 +18,23 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+
+
 /**
- * FXML Controller class
- *
- * @author arnol
+ * FXML Controller class for the Home Page GUI
  */
 public class FXMLHomePageController implements Initializable {
-    private void handleButtonAction(ActionEvent event) throws IOException {
-
-
-    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-
+    
+    /**
+     * Method for action when start button clicked.
+     * @param event - click event
+     * @throws IOException - in case file doesn't exist, throw exception
+     */
     @FXML
     private void startButtonClicked(ActionEvent event) throws IOException {
         System.out.println("Loading program...");
@@ -40,11 +42,15 @@ public class FXMLHomePageController implements Initializable {
         Scene home_page_scene = new Scene(home_page_parent);
         Stage app_stage = ((Stage) ((Node) event.getSource()).getScene().getWindow());
         app_stage.setScene(home_page_scene);
+        app_stage.setResizable(false);
         app_stage.show();
     }
     
+    /**
+     * Method for action when exit button clicked.
+     */
     @FXML
-    private void exitButtonClicked(ActionEvent event) throws IOException {
+    private void exitButtonClicked(){
         Platform.exit();
     }
 

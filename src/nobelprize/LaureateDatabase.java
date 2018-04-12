@@ -28,7 +28,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *This class is the laureate database, it collects all of the laureates from the nobel prize database (via JSON sile),
+ *This class is the laureate database, it collects all of the laureates from the Nobel Prize database (via JSON),
  * then uses GSON to convert all of the laureates into objects.
  * @author Darren
  */
@@ -39,19 +39,17 @@ public class LaureateDatabase {
     File imageCollectionList;
     
     /**
-     * The constructor for the laureate database, downloads the laureate JSON from the nobel prize API, converts
+     * The constructor for the laureate database, downloads the laureate JSON from the Nobel Prize API, converts
      * it to a list of laureate objects, and gets the images for the objects if needed.
      * @throws MalformedURLException
      * @throws IOException 
      */
     public LaureateDatabase() throws MalformedURLException, IOException{  
         this.buildLaureateList(this.getJSON("http://api.nobelprize.org/v1/laureate.json", ""));        
-        this.laureateListCleaner();
-        //imageHandler.collectImagesAvailable();
+        this.laureateListCleaner();     
         imageCollectionList = new File("AvailableWikiImages.txt");  
         verifyImages(imageCollectionList);
-        imageHandler.ImageCompressor();        
-        //this.collectLaureateImages();  
+        imageHandler.ImageCompressor();                
     } 
     
       /**
@@ -136,27 +134,6 @@ public class LaureateDatabase {
         getLaureateList().removeAll(incorrectLaureates);
     }
     
-    /**
-     * This collects the images for every laureate.
-     * @throws IOException 
-     
-    private void collectLaureateImages() throws IOException{
-        
-        String laureateImageJSON;
-        String imageURL = null;
-        for (Laureate laureate : getLaureateList()){
-            for (String nameType : laureate.getFirstNameList()){
-                if (laureate.getLaureateImage().equals("Images/Nobel_Prize.png") && !laureate.getBorn().equals("Not Available")){
-                    if ((laureateImageJSON = this.getJSON("https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=", nameType)) != null){                    
-                        if ((imageURL = parseWikiJSON(laureateImageJSON)) != null){
-                            laureate.setLaureateImage(imageHandler.downloadImage(imageURL, nameType)); 
-                        }
-                    } 
-                }
-            }
-        }
-    }           
-    */
     /**
      * This method is used to parse the JSON from wikipedia to collect the image URL
      * @param wikiJSON

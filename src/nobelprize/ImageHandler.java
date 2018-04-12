@@ -15,6 +15,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.net.URLConnection;
 import javax.imageio.ImageIO;
 import org.imgscalr.Scalr;
 
@@ -32,8 +33,7 @@ public class ImageHandler {
      * @param imageFolder 
      */
     public ImageHandler(String imageFolder){
-        this.imageFolder = imageFolder; 
-        downloadImage("https://thumbs-prod.si-cdn.com/jBfDQ3QbdLm40EOP3ywREFguPEI=/800x600/filters:no_upscale():focal(515x296:516x297)/https://public-media.smithsonianmag.com/filer/40/8a/408acbae-404f-4f17-8e49-b3099699e1d6/efkeyb-wr.jpg", "Nobel_Prize");
+        this.imageFolder = imageFolder;         
     }
   
    /**
@@ -45,7 +45,7 @@ public class ImageHandler {
     public String downloadImage(String imageURL, String laureateName){
         StringBuilder imageLocation = new StringBuilder(this.imageFolder);
         imageLocation.append(laureateName);
-        File Image = new File(imageLocation.toString());
+        File Image = new File(imageLocation.toString());        
         if(!Image.exists() && !Image.isDirectory()){           
             try{              
                 URL url = new URL(imageURL); 
@@ -56,7 +56,8 @@ public class ImageHandler {
                 }                
                 input.close();
                 out.close();
-            } catch (IOException e){            
+            } catch (IOException e){ 
+                System.out.println("Error");
             }        
         }
         
@@ -93,7 +94,7 @@ public class ImageHandler {
     }
     
     /**
-     * This method makes a text document of all the images in the imagehandlers folder.
+     * This method makes a text document of all the images in the imagehandlers image folder.
      * This reference text is used in case someone goes in and deletes images for fun
      * we will be able to use the list to see whats missing.
      * @throws IOException 
@@ -131,7 +132,7 @@ public class ImageHandler {
                     laureate.setLaureateImage(imageLocation.toString());
                     break;
                 }         
-                laureate.setLaureateImage("Images/Nobel_Prize.jpg");
+                laureate.setLaureateImage("Images/Nobel_Prize.png");
             }                        
         }
     } catch (NullPointerException e){

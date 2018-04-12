@@ -6,12 +6,13 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="301.0" prefWidth="600.0" style="-fx-background-color: #1B4F72;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="searchprograminterface.FXMLHomePageController">
    <children>
       <AnchorPane layoutX="332.0" layoutY="64.0" prefHeight="150.0" prefWidth="247.0" style="-fx-background-color: #17202A; -fx-border-width: 4; -fx-border-radius: 6; -fx-background-radius: 6;">
          <children>
-            <Button layoutX="18.0" layoutY="33.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="84.0" prefWidth="211.0" style="-fx-border-width: 4; -fx-background-color: #1B4F72; -fx-border-radius: 6;" text=" Start Searching" textAlignment="CENTER" textFill="WHITE">
+            <Button layoutX="18.0" layoutY="33.0" mnemonicParsing="false" onAction="#startButtonClicked" prefHeight="84.0" prefWidth="211.0" stylesheets="@../Styles/startButtonEffects.css" text=" Start Searching" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font name="Arial Bold" size="22.0" />
                </font>
@@ -32,10 +33,20 @@
             <Font name="Arial Bold" size="12.0" />
          </font>
       </Label>
-      <Button layoutX="478.0" layoutY="253.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="34.0" prefWidth="101.0" style="-fx-border-width: 4; -fx-background-color: #B71C1C; -fx-border-radius: 6; -fx-background-radius: 6;" text="Exit" textAlignment="CENTER" textFill="WHITE">
+      <Button layoutX="478.0" layoutY="253.0" mnemonicParsing="false" onAction="#exitButtonClicked" prefHeight="34.0" prefWidth="101.0" style="-fx-border-width: 4; -fx-border-radius: 6; -fx-background-radius: 6;" stylesheets="@../Styles/exitButtonEffects.css" text="Exit" textAlignment="CENTER" textFill="WHITE">
          <font>
             <Font name="Arial Bold" size="22.0" />
          </font>
       </Button>
+      <Text fill="WHITE" layoutX="14.0" layoutY="268.0" strokeType="OUTSIDE" strokeWidth="0.0" text="First time using the program?" wrappingWidth="194.4482421875">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
+      <Text fill="WHITE" layoutX="14.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="It takes ~3m50s to download all images..." wrappingWidth="286.4482421875">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
